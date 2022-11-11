@@ -9,4 +9,10 @@ class Avo::Index::TableRowComponent < ViewComponent::Base
     @parent_model = parent_model
     @parent_resource = parent_resource
   end
+
+  private
+
+  def resource_classes
+    @resource.html_classes
+  end
 end

@@ -39,4 +39,8 @@ class Avo::Index::GridItemComponent < Avo::BaseComponent
 
     helpers.resource_view_path(model: @resource.model, resource: parent_or_child_resource, **args)
   end
+
+  def resource_classes
+    @resource.html_classes
+  end
 end

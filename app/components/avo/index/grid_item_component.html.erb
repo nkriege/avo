@@ -1,5 +1,5 @@
 <div
-  class="relative bg-white rounded shadow-modal flex flex-col group"
+  class="relative bg-white rounded shadow-modal flex flex-col group <%= resource_classes %>"
   <%== item_selector_init @resource %>
 >
   <%= content_tag :div, class: "relative w-full pb-3/4 rounded-t overflow-hidden #{cover.present? ? cover.get_html(:classes, view: :index, element: :wrapper) : ""}", style: cover.present? ? cover.get_html(:style, view: :index, element: :wrapper) : "" do %>

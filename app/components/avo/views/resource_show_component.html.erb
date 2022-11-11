@@ -1,4 +1,5 @@
 <%= content_tag :div,
+  class: @resource.html_classes,
   data: {
     model_name: @resource.model_name.to_s,
     resource_name: @resource.class.to_s,

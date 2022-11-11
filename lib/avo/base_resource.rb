@@ -50,6 +50,7 @@ module Avo
     class_attribute :keep_filters_panel_open, default: false
     class_attribute :extra_params
     class_attribute :link_to_child_resource, default: false
+    class_attribute :html_classes
 
     class << self
       delegate :t, to: ::I18n
@@ -227,6 +228,14 @@ module Avo
       if view == :index
         return self.class.description if self.class.description.is_a? String
       end
+    end
+
+    def html_classes
+      if self.class.html_classes.respond_to?(:call)
+        return Avo::Hosts::ResourceViewRecordHost.new(block: self.class.html_classes, record: record, resource: self, view: view).handle
+      end
+
+      self.class.html_classes
     end
 
     def translation_key
